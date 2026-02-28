@@ -1,12 +1,12 @@
 ---
 name: langgraph-for-agents
-description: Use LangGraph to build agents
+description: Use LangGraph/LangChain to build agents
 ---
 
 # LangGraph for Agents
 
 ## When to use
-- Use this skill when the user asks to build agents or multi-agent systems using LangGraph.
+- Use this skill when the user asks to build agents or multi-agent systems using LangGraph/LangChain.
 
 ## How to refer
 ### Integrated Reference Examples
@@ -33,12 +33,34 @@ For demos or tests, use a single .py file. For production-grade applications, us
 ```
 ├── app/                      
 │   ├── api/        # API endpoints
-│   ├── backend/    # LangGraph logic
+│   ├── backend/    # LangGraph/LangChain logic
 │   └── frontend/   # User interface
 ├── .env.example
 ├── requirements.txt
 └── README.md
 ```
+
+## Process for Agent System Design
+### Step 1: Determine System Level
+- Single-Agent System: Focus on the internal structure of one agent.
+- Multi-Agent System: Focus on collaboration and communication between multiple agents.
+
+### Step 2: Choose Implementation Framework
+- LangGraph: Best for stateful, complex workflows.
+- LangChain: Best for standard agent patterns based on tool calling.
+
+### Step 3: Design Specific Implementation
+#### For Single-Agent Systems:
+- With LangGraph: Build a multi-node workflow with sequential steps.
+- With LangChain: Implement a ReAct Agent using a Thought-Action-Observation loop.
+
+#### For Multi-Agent Systems:
+- With LangGraph:
+  - Option 1: Treat each node as an independent agent, connecting them via the Graph API.
+  - Option 2: Encapsulate a multi-node workflow as a single agent, calling other agents as tools.
+
+- With LangChain:
+  - Create a main ReAct Agent and encapsulate other agents as tools for collaboration.
 
 ## Build Philosophy
 - Prefer Native: Check if a tool or integration already exists in LangChain before custom building.
