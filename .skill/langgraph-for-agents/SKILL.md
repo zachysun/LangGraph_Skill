@@ -45,14 +45,14 @@ For demos or tests, use a single .py file. For production-grade applications, us
 - Single-Agent System: Focus on the internal structure of one agent.
 - Multi-Agent System: Focus on collaboration and communication between multiple agents.
 
-### Step 2: Choose Implementation Framework
+### Step 2: Choose Framework
 - LangGraph: Best for stateful, complex workflows.
 - LangChain: Best for standard agent patterns based on tool calling.
 
 ### Step 3: Design Specific Implementation
 #### For Single-Agent Systems:
-- With LangGraph: Build a multi-node workflow with sequential steps.
-- With LangChain: Implement a ReAct Agent using a Thought-Action-Observation loop.
+- With LangGraph: Build a workflow with several nodes, or implement a ReAct Agent with manual tool_node.
+- With LangChain: Build a ReAct Agent by `create_agent` API.
 
 #### For Multi-Agent Systems:
 - With LangGraph:
