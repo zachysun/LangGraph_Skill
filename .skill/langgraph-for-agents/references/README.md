@@ -38,3 +38,8 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | LangGraph workflow with short-term memory                    | [langgraph_workflow_st_mem.py](./langgraph_workflow_st_mem.py) |
 | LangGraph workflow with long-term memory                     | [langgraph_workflow_lt_mem.py](./langgraph_workflow_lt_mem.py) |
+
+## LangGraph Streaming
+| Description                                                  | File                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| LangGraph streaming output                           | [langgraph_streaming.py](./langgraph_streaming.py)         |
