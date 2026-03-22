@@ -13,6 +13,10 @@ description: Use LangGraph/LangChain to build agents
 Read the examples in "./references/" to understand common patterns. 
 Start with "./references/README.md" for an overview, then read the target file, it will show more details.
 
+!Important: 
+To build an agent, `API_KEY` credentials is necessary. 
+This is user privacy, please do not hard-code it, just hold a placeholder, e.g. `API_KEY=your-api-key`, and let the user manage the actual keys.
+
 ### External Resources
 [Search]
 If the "search" tool is available, you can refine the query keywords and execute the search.
