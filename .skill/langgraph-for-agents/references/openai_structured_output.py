@@ -6,17 +6,11 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
-load_dotenv()
+# ignore env load and llm call
 
-client_deepseek = OpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-)
+client_deepseek = OpenAI() # ignore params
 
-client_qwen = OpenAI(
-    api_key=os.getenv("SILICONFLOW_API_KEY"),
-    base_url="https://api.siliconflow.cn/v1/",
-)
+client_qwen = OpenAI() # ignore params
 
 
 # =========================
@@ -55,7 +49,7 @@ class MathResponse(BaseModel):
 def math_reasoning(question: str) -> str:
 
     response = client_qwen.chat.completions.parse(
-        model="Pro/Qwen/Qwen2.5-7B-Instruct",
+        model="your-model-name",
         messages=[
             {"role": "user", "content": question}
         ],

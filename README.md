@@ -18,4 +18,6 @@ Platforms support skills:
 - [Manus](https://manus.im/docs/en/features/skills)
 - ...
 
-All references are from repository https://github.com/zachysun/LangGraph_Usage_Lib
+Find this skill:
+- [ClawHub](https://clawhub.ai/zachysun/langgraph-for-agents)
+- [skillsmp](https://skillsmp.com/skills/zachysun-langgraph-skill-skill-langgraph-for-agents-skill-md)

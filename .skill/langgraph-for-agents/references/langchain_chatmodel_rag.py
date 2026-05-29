@@ -13,25 +13,13 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.runnables import chain
 
-load_dotenv()
-
-# =========================
-# Create LLM Interface
-# =========================
-llm = ChatOpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-chat",
-)
+# ignore env load and llm call
 
 
 # =========================
 # Create Vector Store and Embeddings
 # =========================
-embeddings = ZhipuAIEmbeddings(
-    model="embedding-3",
-    api_key=os.getenv("ZHIPUAI_API_KEY")
-)
+embeddings = ZhipuAIEmbeddings() # ignore params
 vector_store = InMemoryVectorStore(embeddings)
 
 
@@ -51,7 +39,7 @@ simple_docs = [
 ]
 
 # Load local documents
-loader = PyPDFLoader("assets/example.pdf")
+loader = PyPDFLoader() # ignore the pdf file
 local_docs = loader.load()
 
 # Load web pages

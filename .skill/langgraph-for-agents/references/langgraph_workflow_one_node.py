@@ -5,7 +5,7 @@ from langgraph.graph import StateGraph, START, END
 from langchain_openai import ChatOpenAI
 from langchain.messages import SystemMessage, HumanMessage
 
-load_dotenv()
+# ignore env load
 
 # =========================
 # Create State Schema
@@ -22,12 +22,7 @@ def chat_node(state: ChatState) -> ChatState:
     """Single node: call chat model and store query & answer in state."""
     query = state.get("query", "").strip()
 
-    llm = ChatOpenAI(
-        api_key=os.getenv("DEEPSEEK_API_KEY"),
-        base_url="https://api.deepseek.com/v1",
-        model="deepseek-chat",
-        temperature=0.7,
-    )
+    llm = ChatOpenAI() # ignore params
 
     messages = [
         SystemMessage("You are a helpful assistant."),

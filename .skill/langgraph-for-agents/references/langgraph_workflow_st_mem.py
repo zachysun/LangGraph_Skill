@@ -8,23 +8,7 @@ from langchain.messages import SystemMessage, HumanMessage
 from langgraph.checkpoint.memory import InMemorySaver  
 from langgraph.graph import StateGraph, START, MessagesState
 
-load_dotenv()
-
-# =========================
-# Create Nodes
-# =========================
-def chat_node(MessagesState):
-    messages = MessagesState["messages"]
-    
-    llm = ChatOpenAI(
-        api_key=os.getenv("DEEPSEEK_API_KEY"),
-        base_url="https://api.deepseek.com/v1",
-        model="deepseek-chat",
-        temperature=0.7,
-    )
-
-    result = llm.invoke(messages)
-    return {"messages": [result]}
+# ignore env load and llm call
 
 
 # =========================

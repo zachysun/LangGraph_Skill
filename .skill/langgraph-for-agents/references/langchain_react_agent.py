@@ -4,16 +4,7 @@ from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI 
 from langchain.messages import SystemMessage, HumanMessage, AIMessage
 
-load_dotenv()
-
-# =========================
-# Create LLM Interfaces
-# =========================
-llm = ChatOpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-chat",
-)
+# ignore env load and llm call
 
 
 # =========================

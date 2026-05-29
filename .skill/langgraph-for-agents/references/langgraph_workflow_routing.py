@@ -8,31 +8,7 @@ from langgraph.graph import StateGraph, START, END
 from langchain_openai import ChatOpenAI
 from langchain_deepseek import ChatDeepSeek
 
-load_dotenv()
-
-# =========================
-# Create LLM Interfaces
-# =========================
-llm_judge = ChatOpenAI(
-    api_key=os.getenv("SILICONFLOW_API_KEY"),
-    base_url="https://api.siliconflow.cn/v1",
-    model="Qwen/Qwen2-7B-Instruct",
-    temperature=0.7,
-)
-
-llm_non_thinking = ChatDeepSeek(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-chat",
-    temperature=0.7,
-)
-
-llm_thinking = ChatDeepSeek(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-reasoner",
-    temperature=0.7,
-)
+# ignore env load and llm call
 
 
 # =========================

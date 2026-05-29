@@ -13,17 +13,7 @@ from langchain_openai import ChatOpenAI
 from langgraph.types import interrupt, Command
 from langgraph.checkpoint.memory import MemorySaver
 
-load_dotenv()
-
-# =========================
-# Create LLM Interfaces
-# =========================
-llm = ChatOpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-chat",
-    temperature=0.7,
-)
+# ignore env load and llm call
 
 
 # =========================

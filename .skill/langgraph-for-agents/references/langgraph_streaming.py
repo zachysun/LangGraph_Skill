@@ -6,21 +6,13 @@ from langgraph.config import get_stream_writer
 from langchain_openai import ChatOpenAI
 from langchain.messages import SystemMessage, HumanMessage
 
-load_dotenv()
-
 class WritingState(TypedDict):
     topic: str
     outline: str
     draft: str
     final: str
 
-llm = ChatOpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-chat",
-    temperature=0.4,
-    streaming=True,
-)
+# ignore env load and llm call
 
 def creating_outline(state: WritingState):
     writer = get_stream_writer()

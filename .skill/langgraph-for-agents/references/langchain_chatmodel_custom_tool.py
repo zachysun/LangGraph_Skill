@@ -4,29 +4,19 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, ToolMessage
 from langchain.tools import tool
 
-load_dotenv()
-
-# =========================
-# Create LLM Interfaces
-# =========================
-llm = ChatOpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-chat",
-)
-
+# ignore env load and llm call
 
 # =========================
 # Create Custom Tool
 # =========================
-@tool("calculator", description="Performs arithmetic calculations. Use this for any math problems.")
-def calc(expression: str) -> str:
-    return str(eval(expression))
+@tool("add", description="Adds two numbers. Use this for addition problems.")
+def add(a: int, b: int) -> int:
+    return a + b
 
 
 if __name__ == "__main__":
-    llm_with_tools = llm.bind_tools([calc])
-    prompt = "Please calculate 123 * 9873."
+    llm_with_tools = llm.bind_tools([add])
+    prompt = "Please add 123 and 9873."
     
     messages = [HumanMessage(content=prompt)]
     response = llm_with_tools.invoke(prompt)
@@ -34,9 +24,9 @@ if __name__ == "__main__":
     while response.tool_calls:
         messages.append(response)
         for tool_call in response.tool_calls:
-            tool_result = calc.invoke(tool_call["args"])
+            tool_result = add.invoke(tool_call["args"])
             print(
-                f"====Calculator result:====\n {tool_result}"
+                f"====Add result:====\n {tool_result}"
             )
 
             tool_message = ToolMessage(

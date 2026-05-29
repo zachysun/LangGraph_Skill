@@ -3,17 +3,7 @@ import json
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 
-load_dotenv()
-
-# =========================
-# Create LLM Interfaces
-# =========================
-llm = ChatOpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-chat",
-)
-
+# ignore env load and llm call
 text_prompts = "Please give me a simple C programming example."
 
 response = llm.invoke(text_prompts)

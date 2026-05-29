@@ -7,17 +7,7 @@ from dotenv import load_dotenv
 from langgraph.graph import StateGraph, START, END
 from langchain_openai import ChatOpenAI
 
-load_dotenv()
-
-# =========================
-# Create LLM Interface
-# =========================
-llm = ChatOpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com/v1",
-    model="deepseek-chat",
-    temperature=0.7,
-)
+# ignore env load and llm call
 
 # =========================
 # Prompts
