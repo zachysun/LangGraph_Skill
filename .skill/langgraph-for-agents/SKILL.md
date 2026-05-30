@@ -25,8 +25,14 @@ If the "browse" tool is available, you can visit the following three websites:
 
 [Fetch]
 If the "fetch" tool is available, you can retrieve content from the following URL:
-- Context-7 LangGraph (https://context7.com/websites/langchain_oss_python_langgraph/llms.txt?tokens=10000)
-You may adjust the number of tokens by modifying the `tokens` parameter in the URL. The default value is 10,000.
+- Context-7 LangGraph (https://context7.com/websites/langchain_oss_python_langgraph/llms.txt?topic={}&tokens={})
+
+The `topic` and `tokens` query parameters can be adjusted based on your needs:
+- `topic`: Filter the documentation to a specific subject area (e.g., `interrupt`, `streaming`, `checkpoints`, `tools`).
+- `tokens`: Control the response length (e.g., `10000` for detailed docs, `5000` for concise output).
+- Example: To fetch ~10k tokens of LangGraph docs focused on the interrupt feature:
+  `https://context7.com/websites/langchain_oss_python_langgraph/llms.txt?topic=interrupt&tokens=10000`
+
 
 ## Project Structure
 For demos or tests, use a single .py file. For production-grade applications, use:
